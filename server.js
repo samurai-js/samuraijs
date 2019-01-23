@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
 //express
 app.use('/js', express.static(path.join(__dirname, 'js')))
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
