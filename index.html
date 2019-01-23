@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Samurai JS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/lib/phaser.min.js"></script>
+    <script src="js/lib/state-machine.js"></script>
+    <script src="js/scenes/main.js"></script>
+    <script src="js/scenes/hud.js"></script>
+    <script src="js/scenes/loader.js"></script>
+    <script src="js/game.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="game" class="col-sm-8"></div>
+            <div id="rcol" class="col-sm-4">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#chat">Lounge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#updates">Updates</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                            aria-expanded="false">Settings</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" data-toggle="tab" href="#controls">Control</a>
+                            <a class="dropdown-item" data-toggle="tab" href="#account">Account</a>
+                            <a class="dropdown-item" data-toggle="tab" href="#settings">Options</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                <div id="tabcontent" class="tab-content">
+                    <div class="tab-pane fade show active" id="home">
+                        <h5>Samurai JS &nbsp;<span class="badge badge-danger">BETA</span></h5>
+                        <p>Samurai JS is a fighting game built on Phaser Javascript game framework.
+                           All images are copyrighted by SNK. It's a work in progress so please expect some funny bugs in the game.
+                        </p>
+                        <p>The stories in the series take place in 18th-century Japan, during the Sakoku or seclusion
+                            period of Japan (the first four games run across 1788 and 1789) with great artistic license
+                            so that foreign-born characters (including some from places that did not exist as such in
+                            1788) and fictional monsters can also be part of the story. The plot of each game is quite
+                            different, but they circle a central group of characters and a region in Japan.
+                            For more information on how to play this game, don't forget to follow us on our social media pages below.
+                        </p></br>
+                            <a class="btn btn-block btn-social btn-twitter">
+                                <span class="fa fa-twitter"></span> Follow Samurai JS on Twitter
+                            </a>
+                            <a class="btn btn-block btn-social btn-facebook">
+                                <span class="fa fa-facebook"></span> Like Samurai JS on Facebook
+                            </a>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="chat">
+                        <ul id="messages"></ul>
+                        <form action="" id="chatform" class="form-inline my-2 my-lg-0">
+                            <input id="message" autocomplete='false' class="form-control mr-sm-2" type="text"
+                                placeholder="Type your message">
+                            <button class="btn btn-info my-2 my-sm-0">Send</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="updates">
+                            <p>Reserved for updates.</p>
+                        </div>
+                    <div class="tab-pane fade" id="controls">
+                        <img src='assets/images/keyboard.png'/></br></br>
+                        <p>If using a keyboard, the keyboard layout is below:</p>
+                        <li><b>A:</b> Walk backward</li>
+                        <li><b>S:</b> Crouch</li>
+                        <li><b>D:</b> Walk forward</li>
+                        <li><b>W:</b> Jump</li>
+                        <li><b>I:</b> Medium slash</li>
+                        <li><b>O:</b> Medium kick</li>
+                        <li><b>P:</b> Heavy slash</li></br>
+                        <p>The movement buttons (e.g. ASDW) acts like a joystick. To do a quarter circle forward motion,
+                           press S > D. To do an uppercut motion, press D > S > D. To block an attack, press the button away from the
+                           opponent's direction.
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="account">
+                        <p>Reserved for account.</p>
+                    </div>
+                    <div class="tab-pane fade" id="settings">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                        <button type="button" class="btn btn-primary">Select Character</button>
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start"
+                                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);">
+                                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-primary badge-pill">1</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                        <button type="button" class="btn btn-primary">Select Stage</button>
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start"
+                                                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);">
+                                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                                <a class="dropdown-item" href="#">Dropdown link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-primary badge-pill">1</span>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+<script src="js/client.js"></script>
+
+</html>
