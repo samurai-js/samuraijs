@@ -37,7 +37,7 @@ var loadscene = new Phaser.Class({
     },
     create: function(){
         random = Phaser.Math.Between(1, 2)
-        if (2 == 1){
+        if (random == 1){
             this.chars.push(haohmaru); haohmaru.id = 'p1'
             this.chars.push(genjuro); genjuro.id = 'p2'
         }else{
