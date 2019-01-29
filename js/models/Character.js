@@ -15,7 +15,7 @@ var Character = new Phaser.Class({
             this.speedY = this.config.speedY;
             this.uppercutY = config.uppercutY;
             this.special = config.special
-            this.power = 1000
+            this.power = 0
             this.fwd = 'fwd'
             this.bwd = 'bwd'
             this.setScale(1.35).setDepth(2)
