@@ -15,7 +15,7 @@ var Character = new Phaser.Class({
             this.speedY = this.config.speedY;
             this.uppercutY = config.uppercutY;
             this.special = config.special
-            this.power = 0
+            this.power = 1000
             this.fwd = 'fwd'
             this.bwd = 'bwd'
             this.setScale(1.35).setDepth(2)
@@ -213,16 +213,19 @@ StateMachine.factory(Character, { //actions state machine
                     match.resetPower(this.id)
                     this.power = 0
                     this.hitbox.setDamage(frame[0].hitbox.damage, type)
+                    this.opponent.play(this.opponent.id + 'hitair', true);
                     this.on('animationupdate_' + this.id + type, function () {
                         this.body.allowGravity = false
                         this.body.setVelocityY(-7).setVelocityX(0)
-                        this.opponent.setState('immobilized')
                         this.hitbox.quickDisplay(frame[0].hitbox)
-                        this.opponent.setDepth(1)
                         this.body.setBounce(0, 0)
-                        this.opponent.body.setBounce(0, 0)
-                        this.opponent.body.allowGravity = false
-                        this.opponent.body.setVelocityY(-33).setVelocityX(0)
+                        this.opponent.setDepth(1)
+                        if(this.opponent.state != 's_block'){
+                            this.opponent.setState('s_immobile')
+                            this.opponent.body.setBounce(0, 0)
+                            this.opponent.body.allowGravity = false
+                            this.opponent.body.setVelocityY(-33).setVelocityX(0)
+                        }
                     });
                     this.on('animationcomplete_' + this.id + type, function () {
                         this.scene.cameras.main.flash(1200);
@@ -238,10 +241,13 @@ StateMachine.factory(Character, { //actions state machine
                     this.scene.cameras.main.flash(500);
                     this.hitbox.setDamage(frame[0].hitbox.damage, type);
                             this.body.setVelocityX(this.speedX)
-                            this.hitbox.setCoord(this.x + 50 * this.xInd, this.y, frame[0].hitbox.width, frame[0].hitbox.height);
                             this.scene.cameras.main.flash(800);
                             this.scene.cameras.main.shake(800, 0.003);
                             this.play(this.id + 'raging-uppercut', true)
+                            this.on('animationupdate_' + this.id + 'raging-uppercut', function () {
+                                this.hitbox.setCoord(this.x + 50 * this.xInd, this.y, frame[0].hitbox.width, frame[0].hitbox.height);
+                            })
+                            this.opponent.setState('s_immobile')
                             this.on('animationcomplete_' + this.id + 'raging-uppercut', function () {
                                 this.spattack('risinguppercut')
                                 this.opponent.body.setVelocityY(-500)
@@ -271,9 +277,8 @@ StateMachine.factory(Character, { //actions state machine
             switch (type) {
                 case 'mirror':
                     this.play(this.id + 'hitground', true); 
-                    this.scene.cameras.main.shake(500, 0.004); break;
+                    this.scene.cameras.main.shake(500, 0.004); break;                    
                 case 'hurricane':
-                    this.setState('immobilized');
                     this.play(this.id + 'hitair', false);
                     this.body.setVelocityY(-370);
                     this.on('animationupdate_' + this.id + 'hitair', function () {

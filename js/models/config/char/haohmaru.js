@@ -38,7 +38,7 @@ var transitions = [
     { name: 'attack', from: ['s_idle', 's_walk_fwd', 's_walk_bwd', 's_run', 's_jump'], to: 's_attack' },
     { name: 'spattack', from: ['s_idle', 's_walk_fwd', 's_walk_bwd', 's_run'], to: 's_attack' },
     { name: 'block', from: ['s_idle', 's_walk_fwd', 's_walk_bwd'], to: 's_block' },
-    { name: 'hit', from: ['s_idle', 's_walk_fwd', 's_walk_bwd', 's_run', 's_jump', 's_attack'], to: 's_hit' },
+    { name: 'hit', from: ['s_idle', 's_walk_fwd', 's_walk_bwd', 's_run', 's_jump', 's_attack','s_immobile'], to: 's_hit' },
     { name: 'setState', from: '*', to: function (state) { return state } }];
 
 // Basic config

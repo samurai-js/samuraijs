@@ -123,6 +123,7 @@ var Match = new Phaser.Class({
 			this.centerText.setVisible(false)
 			this.startTimer();
 			this.started = true;
+			this.increasePower('p1_', 1000);
 		}
 		if (this.time == 0 && this.started) { //time over
 			this.postTimer.paused = false

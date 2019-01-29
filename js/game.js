@@ -24,6 +24,9 @@ function weaponHit(hitbox, target) {
 		} else if (hitter.hitbox.active && target.hitbox.active && hitter.hitbox.collides && target.hitbox.collides) {
 			var players = [hitter, target]
 			this.events.emit('counterAttack', players);
+		} else {
+			addHitSparks(target.x, target.y, 2, 'yellow')
+			target.hit(hitbox.type, hitbox.damage);
 		}
 	}
 }
