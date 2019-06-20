@@ -23,7 +23,7 @@ var loadscene = new Phaser.Class({
         this.load.spritesheet('yellowhit', 'assets/particles/yellowhit.png', { frameWidth: 55, frameHeight: 68 });
         this.load.spritesheet('bluehit', 'assets/particles/bluehit.png', { frameWidth: 55, frameHeight: 68 });
         this.load.spritesheet('leaf', 'assets/particles/leaf.png', { frameWidth: 22, frameHeight: 14 });
-		this.load.spritesheet('background', 'assets/stages/haoh.png', { frameWidth: 800, frameHeight: 600 });
+		this.load.spritesheet('background', 'assets/stages/basara.png', { frameWidth: 800, frameHeight: 600 });
 		//objects
 		this.load.script('stage_js', 'js/models/Stage.js');
         this.load.script('player_js', 'js/models/Character.js');

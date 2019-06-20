@@ -26,7 +26,7 @@ var mainscene = new Phaser.Class({
 		stage.animate();
 		ground = stage.createGround();
 		match = new Match(this);
-		player1 = new Character(this, 300, 300, null, 0, this.chars[0])//players
+		player1 = new Character(this, 300, 300, null, 0, this.chars[0]) //players
 		player2 = new Character(this, 500, 300, null, 0, this.chars[1])
 		center = new Dummy(this, 400, 300, null, null);
 		player1.opponent = player2

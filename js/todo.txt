@@ -2,8 +2,8 @@ game:
 finite state machine (done)
 blocking/collision (done)
 audio (done)
-special move 
-enemy AI (50%)
+special move (done) 
+enemy AI (done)
 character selection / splash
 frame precision/combo (hard)
 

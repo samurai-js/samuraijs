@@ -2,7 +2,7 @@
 var game = new Phaser.Game({
 	type: Phaser.AUTO, parent: "game", width: 800, height: 574,
 	input: { gamepad: true },
-	physics: { default: 'arcade', arcade: { gravity: { y: 600 }, debug: true } },
+	physics: { default: 'arcade', arcade: { gravity: { y: 600 }, debug: false } },
 	scene: [loadscene, mainscene, hudscene]
 });
 var gamepad;
