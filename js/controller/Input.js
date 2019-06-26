@@ -46,9 +46,10 @@ var Input = new Phaser.Class({
 		if (player.state != 's_run') { invertControls(player, player.opponent) }
 		//direction buttons
 		if (this.l.isDown && this.u.isDown) { player.jump() }
-		else if (this.l.isDown && this.d.isDown) { player.block() }
-		else if (this.l.isDown) { player.walk(player.bwd) }
 		else if (this.r.isDown && this.u.isDown) { player.jump() }
+		else if (this.l.isDown && this.d.isDown) { player.block() }
+		else if (this.r.isDown && this.d.isDown) { player.block() }
+		else if (this.l.isDown) { player.walk(player.bwd) }
 		else if (this.r.isDown) { player.walk(player.fwd) }
 		else if (this.u.isDown) { player.jump() }
 		else if (player.body.touching.down) { 

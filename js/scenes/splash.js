@@ -14,7 +14,7 @@ var splashscene = new Phaser.Class({
 	create: function () {
 		var background = this.add.sprite(400, 300, 'splashbg').setScale(1.0);
 		this.anims.create({ key: 'bg_anim', frames: this.anims.generateFrameNumbers('splashbg', { start: 0, end: 19 }), frameRate: 10, repeat: -1 });
-		this.add.image(400, 300, 'logo');
+		this.add.image(400, 250, 'logo');
 		background.anims.play('bg_anim',true);
 		this.load.spritesheet('leaf', 'assets/particles/leaf.png', { frameWidth: 22, frameHeight: 14 });
 		
@@ -28,7 +28,7 @@ var splashscene = new Phaser.Class({
 			frequency: 2000, lifespan: 4000,
 			quantity: 50, tint: 0xffffff
 		});
-		this.add.text(400, 450, 'PRESS ANY BUTTON TO START', { fontFamily: 'Arial', fontSize: 25, color: '#fff' }).setOrigin(0.5).setStroke('#000000', 5)
+		this.add.text(400, 400, 'PRESS ANY BUTTON TO START', { fontFamily: 'Arial', fontSize: 25, color: '#fff' }).setOrigin(0.5).setStroke('#000000', 5)
 		this.input.once('pointerup', function (event) {
 			this.scene.transition({ target: 'loadscene', duration: 1000 });
         }, this);
