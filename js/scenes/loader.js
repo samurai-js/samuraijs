@@ -3,7 +3,7 @@ var loadscene = new Phaser.Class({
 	Extends: Phaser.Scene,
 	initialize:
 		function loadscene() {
-        Phaser.Scene.call(this, { key: 'loadscene', active: true });
+        Phaser.Scene.call(this, { key: 'loadscene', active: false });
     },
     chars: [],
 	preload: function () {

@@ -1,9 +1,9 @@
 //Main game
 var game = new Phaser.Game({
-	type: Phaser.AUTO, parent: "game", width: 800, height: 574,
+	type: Phaser.AUTO, parent: "game", width: 800, height: 600,
 	input: { gamepad: true },
 	physics: { default: 'arcade', arcade: { gravity: { y: 600 }, debug: false } },
-	scene: [loadscene, mainscene, hudscene]
+	scene: [splashscene, loadscene, mainscene, hudscene]
 });
 var gamepad;
 //Functions
