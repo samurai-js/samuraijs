@@ -18,7 +18,7 @@ var frames = [
     { name: 'uppercut', data: { start: 0, end: 18, frameRate: 15, repeat: 0, frameWidth: 199, frameHeight: 290 }, hitbox: { start: 4, end: 10, y: 50, width: 60, height: 80, damage: 70 } },
     { name: 'shoot', data: { start: 0, end: 16, frameRate: 16, repeat: 0, frameWidth: 165, frameHeight: 242 } },
     { name: 'risingcard', data: { start: 0, end: 72, frameRate: 12, repeat: 0, frameWidth: 201, frameHeight: 312 }, hitbox: { frameHits: [0, 22, 30, 39, 45, 55, 64], width: 60, height: 80, damage: 80 } },
-    { name: 'fireball', data: { start: 0, end: 5, frameRate: 7, repeat: -1, frameWidth: 100, frameHeight: 123 }, hitbox: { width: 60, height: 60, y: 23, ldmg: 30, mdmg: 50, hdmg: 80, ldist: 10000, mdist: 9000, hdist: 8000 } }];
+    { name: 'fireball', data: { start: 0, end: 5, frameRate: 7, repeat: -1, frameWidth: 100, frameHeight: 123 }, hitbox: { width: 60, height: 60, y: 23, ldmg: 30, mdmg: 50, hdmg: 80, ldist: 9000, mdist: 8000, hdist: 6000 } }];
 // Audio
 var audio = [
     { name: 'shp', start: 14, duration: 1.5, config: {} },
