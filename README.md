@@ -1,2 +1,1 @@
-Samurai JS
-A fighting game inspired by Samurai Shodown but built using Phaser javascript game framework
+SamuraiJS is a fighting game inspired by Samurai Shodown and built using Phaser javascript game framework
