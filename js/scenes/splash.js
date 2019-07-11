@@ -17,7 +17,6 @@ var splashscene = new Phaser.Class({
 		this.add.image(400, 250, 'logo');
 		background.anims.play('bg_anim',true);
 		this.load.spritesheet('leaf', 'assets/particles/leaf.png', { frameWidth: 22, frameHeight: 14 });
-		
 		this.add.particles('leaf').createEmitter({
 			x: 600, y: 200,
 			rotate: { min: 90, max: 360 },
@@ -29,8 +28,8 @@ var splashscene = new Phaser.Class({
 			quantity: 50, tint: 0xffffff
 		});
 		this.add.text(400, 400, 'PRESS ANY BUTTON TO START', { fontFamily: 'Arial', fontSize: 25, color: '#fff' }).setOrigin(0.5).setStroke('#000000', 5)
-		this.input.once('pointerup', function (event) {
-			this.scene.transition({ target: 'loadscene', duration: 1000 });
+		this.input.keyboard.on('keydown', function (event) {
+			this.scene.transition({ target: 'loadscene', duration: 500 });
         }, this);
 	}
 });

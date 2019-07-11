@@ -126,6 +126,7 @@ StateMachine.factory(Character, { //actions state machine
         onBlock: function (data) {
             this.isControlled ? client.sendData(this.id, data.transition, this.data) : null
             this.play(this.id + 'block', true)
+            console.log(data)
             this.body.setVelocityX(0);
             this.on('animationcomplete_' + this.id + 'block', function () {
                 this.play(this.id + 'block', true, 5)
